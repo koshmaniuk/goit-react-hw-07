@@ -1,0 +1,35 @@
+.contactFormContainer {
+  border: 1px solid gray;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  gap: 22px;
+  width: 276px;
+  margin-top: 26px;
+}
+
+.contactFormInput {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.errorMsg {
+  position: absolute;
+  left: 0;
+  top: 46px;
+  color: orangered;
+  font-size: 14px;
+}
+
+.contactFormBtn {
+  width: 140px;
+  align-self: center;
+  margin-top: 6px;
+  padding: 10px;
+}
+
+.contactFormBtn:hover {
+  background-color: #3c6ecc;
+}
