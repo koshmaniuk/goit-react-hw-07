@@ -1,25 +1,18 @@
 import Contact from "../Contact/Contact";
 import css from "./ContactList.module.css";
-import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
-import { fetchContacts } from "../../redux/operations";
-import { filteredContacts } from "../../redux/selectors";
+import { useSelector } from "react-redux";
+import { selectFilteredContacts } from "../../redux/selectors";
 
 const ContactList = () => {
-  const dispatch = useDispatch();
-  const contacts = useSelector(filteredContacts);
+  const filteredContacts = useSelector(selectFilteredContacts);
   const { loading, error } = useSelector((state) => state.contacts);
-
-  useEffect(() => {
-    dispatch(fetchContacts());
-  }, [dispatch]);
 
   return (
     <div>
       {loading && <p>Loading...</p>}
       {error && <p>Error!</p>}
       <ul className={css.contactListContainer}>
-        {contacts.map((contact) => (
+        {filteredContacts.map((contact) => (
           <Contact
             key={contact.id}
             contactId={contact.id}
